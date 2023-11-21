@@ -72,9 +72,13 @@ setInterval(() => {
 
 
 $('.AuthForm_btn').click(function(){
+    let buttonClickSound = document.getElementById('AuthForm_btn_sound');
+    buttonClickSound.play();
     if(countOfSymbolsCondition == true && specialCaseCondition == true && bigLetterCondition == true, smallLetterCondition == true && numberCondition == true){
-        alert('Your password is okey!')
+        $('.AuthForm_dataContainer').css('display','none')
+        $('.AuthForm_AccountContainer').css('display', 'flex')
     }else{
         alert("The password don't fit")
     }
+
 })
