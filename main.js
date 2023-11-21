@@ -15,9 +15,18 @@ function checkSpecialCase(password) {
         $('#rull_specialSymbols').css('color', '#BCA37F');
     }
 }
+function bigletter(password) {
+    let hasbigletter = /[A-Z]/.test(password);
+    if (hasbigletter) {
+        $('#rull_bigLetter').css('color', '#113946');
+    } else {
+        $('#rull_bigLetter').css('color', '#BCA37F');
+    }
+}
 
 setInterval(() => {
     let password = $('#AuthForm_password').val();
     checkPassword();
     checkSpecialCase(password); 
+    bigletter(password);
 }, 500);
