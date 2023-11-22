@@ -74,11 +74,42 @@ setInterval(() => {
 $('.AuthForm_btn').click(function(){
     let buttonClickSound = document.getElementById('AuthForm_btn_sound');
     buttonClickSound.play();
-    if(countOfSymbolsCondition == true && specialCaseCondition == true && bigLetterCondition == true, smallLetterCondition == true && numberCondition == true){
+
+    let usernameInput = $('#AuthForm_login');
+    if (!usernameInput.val()) {
+        usernameInput.attr('placeholder', 'Your login here').css('border', 'rgb(174, 52, 52) 3px solid');
+    }else{
+        usernameInput.attr('placeholder', 'Your login here').css('border', '#BCA37F 3px solid');
+    }
+
+
+    let usernameInput2 = $('#AuthForm_password');
+    if (!usernameInput2.val()) {
+        usernameInput2.attr('placeholder', 'Your password here').css('border', 'rgb(174, 52, 52) 3px solid');
+    }else{
+        usernameInput2.attr('placeholder', 'Your password here').css('border', '#BCA37F 3px solid');
+    }
+
+
+    if(countOfSymbolsCondition == true && specialCaseCondition == true && bigLetterCondition == true && smallLetterCondition == true && numberCondition == true){
         $('.AuthForm_dataContainer').css('display','none')
         $('.AuthForm_AccountContainer').css('display', 'flex')
     }else{
-        alert("The password don't fit")
+        if (!countOfSymbolsCondition) {
+            $('#rull_countofSymbols').css('color', 'rgb(174, 52, 52)');
+        }
+        if (!specialCaseCondition) {
+            $('#rull_specialSymbols').css('color', 'rgb(174, 52, 52)');
+        }
+        if (!bigLetterCondition) {
+            $('#rull_bigLetter').css('color', 'rgb(174, 52, 52)');
+        }
+        if (!smallLetterCondition) {
+            $('#rull_smallLetter').css('color', 'rgb(174, 52, 52)');
+        }
+        if (!numberCondition) {
+            $('#rull_number').css('color', 'rgb(174, 52, 52)');
+        }
     }
 
 })
